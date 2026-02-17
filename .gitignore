@@ -1,0 +1,96 @@
+# These are some examples of commonly ignored file patterns.
+# You should customize this list as applicable to your project.
+# Learn more about .gitignore:
+#     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage/
+.nyc_output/
+TEST*.xml
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+.tmp/
+tmp/
+*.tmp
+
+# Conductor runtime
+.conductor/
+.claude-conductors/
+conductor-isolated/
+conductor-cluster-configs/
+
+# Generated output
+*.pdf
+report/
+.eslintcache
+
+# Turbo
+.turbo/
+*.cast
+
+# Generated/temp files
+test-metadata-manual.sh
+test-isolated-fix.js
+
+# Client materials
+Client_Materials/
+
+# Compiled Java/Python/C bytecode
+*.class
+*.py[cod]
+*.jar
+target/
+*.app
+*.exe
+*.war
+
+# Large media files
+*.mp4
+*.tiff
+*.avi
+*.flv
+*.mov
+*.wmv
+
+# State files (cluster logs, sessions, etc.)
+_state/
+
+# Runtime data
+data/
+web-terminal/data/
+
+# Claude
+.claude
+CLAUDE.md

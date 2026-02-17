@@ -1,0 +1,225 @@
+{
+  "$schema": "user-types-registry-v1",
+  "$metadata": {
+    "document_id": "UT-REG-001",
+    "version": "3.1.0",
+    "created_at": "2026-02-16T08:37:30Z",
+    "updated_at": "2026-02-16T15:30:00Z",
+    "generated_by": "Discovery_GeneratePersona",
+    "system_name": "Ragus",
+    "stage": "Discovery",
+    "checkpoint": 2
+  },
+  "items": [
+    {
+      "id": "UT-1.1",
+      "name": "Intake Nurse",
+      "description": "First point of contact for arriving patients. Responsible for rapid initial data capture (name, DOB, chief complaint) at the Intake Desk. Must process patients quickly, especially in urgent situations.",
+      "responsibilities": [
+        "Capture initial patient information (name, DOB, gender, chief complaint, allergies)",
+        "Create 'Intake Complete' state for patients",
+        "Mark patients as LWBS (Left Without Being Seen) when they leave",
+        "Handle emergency trauma alerts via bypass button",
+        "Operate touchscreen/keyboard interface efficiently while wearing gloves"
+      ],
+      "pain_points": ["PP-1.1", "PP-1.3"],
+      "goals": [
+        "Process patients in under 30 seconds for urgent cases",
+        "Minimize typing while maintaining data accuracy",
+        "Prevent bottlenecks at intake desk"
+      ],
+      "environment": "Fast-paced, high-stress, often wearing gloves or with sanitized hands",
+      "technical_proficiency": "Basic to intermediate",
+      "source_facts": ["CF-Q-001", "CF-R-001", "CF-R-002", "CF-Q-002", "CF-R-009"],
+      "interview_sources": ["Session_1.1_The_Clinical_Workflow.md"],
+      "persona_file": "02-research/personas/PERSONA_INTAKE_NURSE.md"
+    },
+    {
+      "id": "UT-1.2",
+      "name": "Triage Nurse (Head Nurse)",
+      "description": "Responsible for taking patient vitals, assigning initial ESI scores, and preparing patients for doctor evaluation. Coordinates workflow between intake and doctor evaluation.",
+      "responsibilities": [
+        "Take patient vitals (BP, temperature, O2, heart rate)",
+        "Assign initial ESI level (1-5)",
+        "Add clinical notes for doctor review (behavioral observations, concerns)",
+        "Create 'Triage In-Progress' state",
+        "Move patients through triage process efficiently",
+        "Act as doctor proxy in emergency situations"
+      ],
+      "pain_points": ["PP-1.2", "PP-1.3", "PP-4.1", "PP-4.3"],
+      "goals": [
+        "Complete triage efficiently without bottlenecks",
+        "Provide accurate clinical context to doctors",
+        "Work effectively during night shifts",
+        "Use system without training for float staff"
+      ],
+      "environment": "Clinical setting, wearing gloves, sanitized hands, works day and night shifts",
+      "technical_proficiency": "Basic to intermediate",
+      "source_facts": ["CF-O-001", "CF-O-002", "CF-Q-003", "CF-R-026", "CF-Q-006", "CF-R-023"],
+      "interview_sources": ["Session_1.1_The_Clinical_Workflow.md", "Session_2.1_Cross-Check___Validation.md"],
+      "persona_file": "02-research/personas/PERSONA_TRIAGE_NURSE.md"
+    },
+    {
+      "id": "UT-1.3",
+      "name": "Triage Doctor",
+      "description": "Emergency physician responsible for evaluating triaged patients, assigning wait time slots based on clinical judgment, and managing patient flow through the ER.",
+      "responsibilities": [
+        "Review patient vitals and chief complaints",
+        "Manually assign wait time slots (Immediate, 30min, 60min, 120min, Rest)",
+        "Use clinical judgment to prioritize patients",
+        "Monitor patient wait times via dashboard alerts",
+        "Perform bulk updates when beds become available",
+        "Flag patients for security when needed",
+        "Re-categorize patients based on changing conditions"
+      ],
+      "pain_points": ["PP-5.2", "PP-3.2"],
+      "goals": [
+        "Maintain clinical control over patient prioritization",
+        "Quickly adjust patient flow as conditions change",
+        "Identify escalating patient conditions via visual alerts",
+        "Work efficiently on both desktop and tablet (Surface)"
+      ],
+      "environment": "High-pressure clinical environment, mobile between triage and trauma bays, uses tablet and desktop",
+      "technical_proficiency": "Intermediate",
+      "source_facts": ["CF-R-003", "CF-R-004", "CF-R-006", "CF-R-007", "CF-R-008", "CF-R-010", "CF-R-019", "CF-R-025"],
+      "interview_sources": ["Session_1.1_The_Clinical_Workflow.md", "Session_2.1_Cross-Check___Validation.md"],
+      "persona_file": "02-research/personas/PERSONA_TRIAGE_DOCTOR.md"
+    },
+    {
+      "id": "UT-2.1",
+      "name": "IT Manager / Operations",
+      "description": "Responsible for infrastructure, deployment, security, and system reliability. Manages on-premise infrastructure and ensures compliance with security policies.",
+      "responsibilities": [
+        "Manage on-premise VM infrastructure (Ubuntu 22.04, 4 vCPUs, 16GB RAM)",
+        "Configure network VLANs and firewall rules",
+        "Handle SSL/TLS certificate management (self-signed for pilot)",
+        "Approve vendor access (2-week process)",
+        "Perform manual deployments via Docker Compose",
+        "Configure LDAP/Active Directory integration",
+        "Manage hourly VM snapshots for backup",
+        "Enforce 15-minute idle timeout policy"
+      ],
+      "pain_points": ["PP-3.1", "PP-6.1", "PP-6.2"],
+      "goals": [
+        "Ensure system remains operational during internet outages",
+        "Maintain security compliance",
+        "Minimize vendor dependencies",
+        "Enable simple, reliable deployments"
+      ],
+      "environment": "Server room, datacenter, remote management",
+      "technical_proficiency": "Advanced",
+      "source_facts": ["CF-C-004", "CF-C-005", "CF-O-003", "CF-O-004", "CF-R-018", "CF-O-005", "CF-C-006", "CF-O-006", "CF-C-007", "CF-O-007", "CF-C-008", "CF-R-027", "CF-R-030", "CF-R-032", "CF-R-033", "CF-C-009"],
+      "interview_sources": ["Session_1.3_Infrastrucrture_and_Interoperability.md", "Session_2.1._Security___Operations_Finalization.md"],
+      "persona_file": "02-research/personas/PERSONA_IT_MANAGER.md"
+    },
+    {
+      "id": "UT-2.2",
+      "name": "Compliance Officer (GDPR/HIPAA Lead)",
+      "description": "Ensures system complies with GDPR, HIPAA, and patient privacy regulations. Defines privacy constraints and data retention policies.",
+      "responsibilities": [
+        "Enforce GDPR and HIPAA compliance (no names on public display)",
+        "Define patient ID format (Initials + Day, under 8 characters)",
+        "Approve status message enums for public display",
+        "Define data retention policies (30 days logs, 24-hour patient data deletion)",
+        "Review audit logging and anonymization practices",
+        "Handle collision resolution for patient IDs"
+      ],
+      "pain_points": ["PP-2.1"],
+      "goals": [
+        "Eliminate privacy violations",
+        "Maintain compliance without sacrificing usability",
+        "Reduce data liability",
+        "Enable auditing while protecting patient privacy"
+      ],
+      "environment": "Compliance office, regulatory review",
+      "technical_proficiency": "Intermediate (policy-focused)",
+      "source_facts": ["CF-C-001", "CF-R-011", "CF-C-002", "CF-R-013", "CF-R-014", "CF-C-003", "CF-R-016", "CF-R-028", "CF-R-029", "CF-R-031"],
+      "interview_sources": ["Session_1.2_The_Privacy___Compliance_Barrier.md_", "Session_2.1._Security___Operations_Finalization.md"],
+      "persona_file": "02-research/personas/PERSONA_COMPLIANCE_OFFICER.md"
+    },
+    {
+      "id": "UT-3.1",
+      "name": "Patient",
+      "description": "Emergency room patient waiting for triage and treatment. Experiences anxiety, pain, and uncertainty during wait times.",
+      "responsibilities": [
+        "Check in at Intake Desk",
+        "Wait in waiting room",
+        "Monitor public display for their ID and wait time",
+        "Recognize their anonymized ID (Initials + Day format)"
+      ],
+      "pain_points": ["PP-2.2", "PP-4.2", "PP-5.1"],
+      "goals": [
+        "Know their position in queue",
+        "Understand expected wait time",
+        "Feel humanized and respected",
+        "Avoid anxiety and confusion"
+      ],
+      "environment": "Waiting room, potentially in pain or distress, with family members",
+      "technical_proficiency": "None to basic",
+      "source_facts": ["CF-Q-004", "CF-Q-005", "CF-R-020", "CF-R-024"],
+      "interview_sources": ["Session_1.2_The_Privacy___Compliance_Barrier.md_", "Session_2.1_Cross-Check___Validation.md"],
+      "persona_file": "02-research/personas/PERSONA_PATIENT.md"
+    },
+    {
+      "id": "UT-3.2",
+      "name": "Patient Rights Representative",
+      "description": "Advocate for patient experience, comfort, and communication. Ensures the system treats patients humanely and reduces anxiety.",
+      "responsibilities": [
+        "Define patient-friendly display formats",
+        "Advocate for humanized identification methods",
+        "Specify visual feedback requirements (blinking, highlighting)",
+        "Define status messages that reduce patient anxiety",
+        "Ensure family members can track patient progress",
+        "Balance privacy with patient reassurance"
+      ],
+      "pain_points": ["PP-2.2", "PP-4.2", "PP-5.1"],
+      "goals": [
+        "Reduce patient anxiety and feeling of being 'cattle'",
+        "Improve patient and family experience",
+        "Maintain dignity while preserving privacy",
+        "Create calming, informative display environment"
+      ],
+      "environment": "Patient advocacy office, waiting room observation",
+      "technical_proficiency": "Basic",
+      "source_facts": ["CF-Q-005", "CF-R-011", "CF-R-012", "CF-C-003", "CF-R-015", "CF-R-020", "CF-R-024"],
+      "interview_sources": ["Session_1.2_The_Privacy___Compliance_Barrier.md_", "Session_2.1_Cross-Check___Validation.md"],
+      "persona_file": "02-research/personas/PERSONA_PATIENT_RIGHTS_REPRESENTATIVE.md"
+    },
+    {
+      "id": "UT-4.1",
+      "name": "Float Nurse / Temporary Staff",
+      "description": "Temporary or substitute nursing staff who cover shifts during vacations, sick days, or high-volume periods. Limited familiarity with systems.",
+      "responsibilities": [
+        "Perform intake or triage duties with minimal context",
+        "Learn system functionality in under 30 seconds",
+        "Operate system without formal training",
+        "Maintain workflow efficiency despite unfamiliarity"
+      ],
+      "pain_points": ["PP-4.3"],
+      "goals": [
+        "Understand system immediately without training",
+        "Avoid errors due to unfamiliarity",
+        "Maintain patient flow without disruption"
+      ],
+      "environment": "Clinical setting, high-stress, no time for onboarding",
+      "technical_proficiency": "Basic",
+      "source_facts": ["CF-Q-006"],
+      "interview_sources": ["Session_2.1_Cross-Check___Validation.md"]
+    }
+  ],
+  "summary": {
+    "total_user_types": 8,
+    "primary_categories": [
+      "Clinical Staff (4 types)",
+      "IT/Compliance (2 types)",
+      "Patient/Advocacy (2 types)"
+    ],
+    "by_technical_proficiency": {
+      "None to basic": 1,
+      "Basic": 3,
+      "Basic to intermediate": 2,
+      "Intermediate": 1,
+      "Advanced": 1
+    }
+  }
+}
