@@ -1,11 +1,112 @@
 {
   "$schema": "screen-registry-v1",
   "$metadata": {
-    "document_id": "SCR-REG-001",
-    "version": "3.1.0",
-    "created_at": "2026-02-16T08:37:30Z",
-    "updated_at": "2026-02-16T08:37:30Z",
-    "generated_by": "discovery-init"
+    "document_id": "SCREEN-REG-001",
+    "version": "1.0.0",
+    "created_at": "2026-02-17T16:33:30.466689Z",
+    "updated_at": "2026-02-17T16:33:30.466830Z",
+    "generated_by": "Discovery_SpecScreens"
   },
-  "items": []
+  "items": [
+    {
+      "id": "SCR-001",
+      "name": "Intake Registration Screen",
+      "path": "/intake",
+      "phase": 1,
+      "epic": "Epic 1.1: Ultra-Fast Intake Workflow",
+      "primary_user": "Intake Nurse (Jenny)",
+      "features": [
+        "US-1.1.1",
+        "US-1.1.2",
+        "US-1.1.3",
+        "US-1.1.4",
+        "US-1.1.5",
+        "US-1.2.1"
+      ],
+      "jtbd": [
+        "JTBD-1.1",
+        "JTBD-1.2",
+        "JTBD-1.3",
+        "JTBD-1.4",
+        "JTBD-1.5"
+      ]
+    },
+    {
+      "id": "SCR-002",
+      "name": "Triage Assessment Screen",
+      "path": "/triage",
+      "phase": 1,
+      "epic": "Epic 1.2: Glove-Friendly UI, Epic 1.4: Manual-Control Triage",
+      "primary_user": "Triage Nurse (Michael)",
+      "features": [
+        "US-1.2.2",
+        "US-1.4.3",
+        "US-1.6.1",
+        "US-1.6.3",
+        "US-1.6.4"
+      ],
+      "jtbd": [
+        "JTBD-2.1",
+        "JTBD-2.2",
+        "JTBD-2.3",
+        "JTBD-2.5"
+      ]
+    },
+    {
+      "id": "SCR-003",
+      "name": "Triage Dashboard (Kanban Board)",
+      "path": "/board",
+      "phase": 1,
+      "epic": "Epic 1.4: Manual-Control Triage Board",
+      "primary_user": "Triage Doctor (Sarah)",
+      "features": [
+        "US-1.4.1",
+        "US-1.4.2",
+        "US-1.4.4",
+        "US-1.4.5"
+      ],
+      "jtbd": [
+        "JTBD-3.1",
+        "JTBD-3.2",
+        "JTBD-3.4",
+        "JTBD-3.5"
+      ]
+    },
+    {
+      "id": "SCR-004",
+      "name": "Public Display Screen",
+      "path": "/public-display",
+      "phase": 1,
+      "epic": "Epic 1.3: Privacy-First Public Display",
+      "primary_user": "Patient Advocate (Maria) + Patients/Families",
+      "features": [
+        "US-1.3.1",
+        "US-1.3.2",
+        "US-1.3.3",
+        "US-1.3.4",
+        "US-1.3.5"
+      ],
+      "jtbd": [
+        "JTBD-4.1",
+        "JTBD-4.2",
+        "JTBD-4.3",
+        "JTBD-4.5"
+      ]
+    },
+    {
+      "id": "SCR-005",
+      "name": "Login Screen",
+      "path": "/login",
+      "phase": 1,
+      "epic": "Epic 1.6: Zero-Training Usability",
+      "primary_user": "All staff",
+      "features": [
+        "US-1.6.1",
+        "US-1.6.3"
+      ],
+      "jtbd": [
+        "JTBD-5.4"
+      ]
+    }
+  ]
 }
